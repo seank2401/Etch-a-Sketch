@@ -1,1 +1,2 @@
 # Etch-a-Sketch
+In this project, I will be creating an "Etch-a-Sketch" site that contains a grid of divs inside a container that the user can paint with their mouse, using hover/click events. This project will also allow the user to select the amount of squares inside the Etch-a-Sketch, dynamically changing the size and amount of grid squares.
