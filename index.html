@@ -4,11 +4,31 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-     <script src="javascript.js" defer></script>
+    <script src="javascript.js" defer></script>
     <link rel="stylesheet" href="styles.css" />
     <title>Etch-a-Sketch</title>
   </head>
   <body>
-
+    <header>
+      <div id="title">Etch-a-Sketch</div>
+    </header>
+    <main id="main">
+      <div id="customization">
+        <div class="slider-container">
+          <div class="value-container">
+            <span id="demo">16 x 16</span>
+          </div>
+          <input
+            type="range"
+            min="1"
+            max="64"
+            value="16"
+            class="slider"
+            id="myRange"
+          />
+        </div>
+      </div>
+      <div id="etchContainer"></div>
+    </main>
   </body>
 </html>
