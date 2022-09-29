@@ -1,8 +1,22 @@
 var divAmount = 16;
+var elementTarget;
+var rainbowActive = false;
+var pickerActive = true;
+var eraserActive = false;
+var boxColor = "#242422";
 
-var sliderOutput = document.getElementById("demo");
+var sliderDemo = document.getElementById("demo");
 var slider = document.getElementById("myRange");
 var container = document.getElementById("etchContainer");
+var rainbowButton = document.getElementById("rainbowButton");
+var clearButton = document.getElementById("clearButton");
+var colorPicker = document.getElementById("colorPicker");
+var colorPickerButton = document.getElementById("colorPickerButton");
+var eraserButton = document.getElementById("eraser");
+
+var colorPickerAll = document.querySelectorAll(".colorButtons");
+
+colorPickerButton.classList.add("buttonActive");
 
 colorPicker.oninput = function () {
   boxColor = this.value;
@@ -14,7 +28,7 @@ slider.oninput = function () {
 
 slider.onchange = function () {
   divAmount = parseInt(this.value);
-  addBoxes();
+  clearCanvas();
 };
 
 document.addEventListener("mousedown", function (e) {
@@ -37,8 +51,14 @@ function handleButtonSelect(e) {
   if (e.target.id == "rainbowButton") {
     rainbowActive = true;
     pickerActive = false;
-  } else {
+    eraserActive = false;
+  } else if (e.target.id == "colorPickerButton") {
     pickerActive = true;
+    rainbowActive = false;
+    eraserActive = false;
+  } else if (e.target.id == "eraser") {
+    eraserActive = true;
+    pickerActive = false;
     rainbowActive = false;
   }
   colorPickerAll.forEach((e) => e.classList.remove("buttonActive"));
@@ -49,7 +69,6 @@ function addBoxes() {
   var totalDivs = Math.pow(divAmount, 2);
   while (totalDivs > 0) {
     var box = container.appendChild(document.createElement("div"));
-    console.log(600 / divAmount);
     box.style.width = 100 / divAmount + "%";
     box.style.height = 100 / divAmount + "%";
     box.className = "box";
@@ -70,11 +89,13 @@ function clearCanvas() {
 }
 
 function paintListener(event) {
-  elementTarget = event.elementTarget;
+  elementTarget = event.target;
   if (elementTarget.classList.contains("box")) {
-    if (rainbowActive == true)
-      elementTarget.style.BackgroundColor = generateRainbow();
-    else elementTarget.style.backgroundColor = boxColor;
+    if (rainbowActive == true) {
+      elementTarget.style.backgroundColor = generateRainbow();
+    } else if (pickerActive == true) {
+      elementTarget.style.backgroundColor = boxColor;
+    } else elementTarget.style.backgroundColor = "grey";
   }
 }
 
