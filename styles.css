@@ -1,24 +1,38 @@
 body {
-  background-color: aliceblue;
+  background-color: #d99ca5;
+}
+
+* {
+  font-family: "Lobster", cursive;
 }
 
 #main {
   display: flex;
   max-width: 1400px;
   margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+}
+
+#title {
+  text-align: center;
+  margin: 2rem;
+  font-size: 3.5rem;
+  font-family: "Silkscreen", cursive;
 }
 
 #etchContainer {
   width: 600px;
   height: 600px;
-  background-color: grey;
-  outline: 4px solid black;
+  background-color: white;
   display: flex;
   flex-wrap: wrap;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .box {
-  outline: 1px solid black;
+  /* outline: 1px solid black; */
   -ms-user-select: none;
   user-select: none;
   -moz-user-select: -moz-none;
@@ -29,14 +43,36 @@ body {
 #customization {
   width: 300px;
   height: 600px;
-  background-color: grey;
-  outline: 4px solid black;
   justify-self: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 20px;
+}
+
+button {
+  padding: 0.5rem;
+  width: 9rem;
+  height: 2.5rem;
+  border-radius: 20%;
+  font-size: 1.2rem;
+
+}
+
+#colorPicker {
+  border: none;
+  background-color: transparent;
+  resize: none;
+  outline: none;
+  -webkit-appearance: none;
+  width: 95px;
+  height: 95px;
+}
+#colorPicker::-webkit-color-swatch {
+  border: none;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .buttonActive {
@@ -58,7 +94,6 @@ body {
 }
 
 #demo {
-  color: rgb(143, 134, 180);
   font-size: 25px;
 }
 

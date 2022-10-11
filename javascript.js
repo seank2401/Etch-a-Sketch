@@ -3,7 +3,7 @@ var elementTarget;
 var rainbowActive = false;
 var pickerActive = true;
 var eraserActive = false;
-var boxColor = "#242422";
+var boxColor = "#AD1A1A";
 
 var sliderDemo = document.getElementById("demo");
 var slider = document.getElementById("myRange");
@@ -13,7 +13,6 @@ var clearButton = document.getElementById("clearButton");
 var colorPicker = document.getElementById("colorPicker");
 var colorPickerButton = document.getElementById("colorPickerButton");
 var eraserButton = document.getElementById("eraser");
-
 var colorPickerAll = document.querySelectorAll(".colorButtons");
 
 colorPickerButton.classList.add("buttonActive");
@@ -23,7 +22,7 @@ colorPicker.oninput = function () {
 };
 
 slider.oninput = function () {
-  sliderOutput.innerHTML = this.value + " x " + this.value;
+  sliderDemo.innerHTML = this.value + " x " + this.value;
 };
 
 slider.onchange = function () {
@@ -95,7 +94,7 @@ function paintListener(event) {
       elementTarget.style.backgroundColor = generateRainbow();
     } else if (pickerActive == true) {
       elementTarget.style.backgroundColor = boxColor;
-    } else elementTarget.style.backgroundColor = "grey";
+    } else elementTarget.style.backgroundColor = "white";
   }
 }
 
